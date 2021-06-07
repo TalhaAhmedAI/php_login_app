@@ -7,23 +7,25 @@
 </head>
 <body>
 <?php
-    require('db.php');
     session_start();
+    include_once('user.php');
+    $user = new User();
     // When form submitted, check and create user session.
     if (isset($_POST['username'])) {
-        $username = stripslashes($_REQUEST['username']);    // removes backslashes
-        $username = mysqli_real_escape_string($con, $username);
+        $username = stripslashes($_REQUEST['username']); // removes backslashes
         $password = stripslashes($_REQUEST['password']);
-        $password = mysqli_real_escape_string($con, $password);
-        // Check user is exist in the database
-        $query    = "SELECT * FROM `users` WHERE username='$username'
-                     AND password='" . md5($password) . "'";
-        $result = mysqli_query($con, $query) or die(mysqli_error($con));
-        $rows = mysqli_num_rows($result);
-        if ($rows == 1) {
+        // Check if user exists in the database
+
+        $result = $user->login($username, $password);
+        
+        if ($result == 1) { 
             $_SESSION['username'] = $username;
+            if($username == 'Admin'){
+                header('Location: admin_panel.php');
+            }else{       
             // Redirect to user dashboard page
-            header("Location: dashboard.php");  
+            header("Location: dashboard.php");
+        }
         } else {
             echo "<div class='form'>
                   <h3>Incorrect Username/password.</h3><br/>
