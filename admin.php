@@ -9,7 +9,9 @@ class Admin extends DbConnection{
 	public function insertData($post){
 
         $username = $this->con->real_escape_string($_POST['username']);
+        $username = strtolower($username);
         $email = $this->con->real_escape_string($_POST['email']);
+        $email = strtolower($email);
         $password = $this->con->real_escape_string($_POST['password']);
 
         $query = "INSERT INTO users (username,email,password) VALUES('$username', '$email','$password')";

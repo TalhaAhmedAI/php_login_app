@@ -24,7 +24,7 @@
                 header('Location: admin_panel.php');
             }else{       
             // Redirect to user dashboard page
-            header("Location: dashboard.php");
+            header("Location: index.php");
         }
         } else {
             echo "<div class='form'>

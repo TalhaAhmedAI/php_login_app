@@ -49,7 +49,10 @@
     }
   ?>
   <h2>View Records
-    <a href="add.php" class="btn btn-primary" style="float:right;">Add New User</a>
+    <div>
+    <a href="add.php" class="btn btn-primary" style="float:auto;">Add New User</a>&nbsp;
+    <a href="logout.php" class="btn btn-primary" style="float:right;">Logout</a>
+  </div>
   </h2>
   <table class="table table-hover">
     <thead>

@@ -13,8 +13,10 @@
     if (isset($_REQUEST['username'])) {
         // removes backslashes
         $username = stripslashes($_REQUEST['username']);
+        $username = strtolower($username);
         //$username = mysqli_real_escape_string($con, $username);
         $email    = stripslashes($_REQUEST['email']);
+        $email = strtolower($email);
         //$email    = mysqli_real_escape_string($con, $email);
         $password = stripslashes($_REQUEST['password']);
         //$password = mysqli_real_escape_string($con, $password);
