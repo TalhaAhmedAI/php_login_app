@@ -1,6 +1,9 @@
 <?php
 //include auth_session.php file on all user panel pages
 include("auth_session.php");
+if($_SESSION['username'] == 'admin'){
+    header('Location: admin_panel.php');
+}
 ?>
 <!DOCTYPE html>
 <html>

@@ -1,6 +1,6 @@
 <?php
   
-  include('admin.php');
+  include('./Classes/admin.php');
   include('admin_auth_session.php');
 
   $admin = new Admin();

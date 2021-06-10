@@ -8,11 +8,12 @@
 <body>
 <?php
     session_start();
-    include_once('user.php');
+    include_once('./Classes/user.php');
     $user = new User();
     // When form submitted, check and create user session.
     if (isset($_POST['username'])) {
-        $username = stripslashes($_REQUEST['username']); // removes backslashes
+        $username = stripslashes($_REQUEST['username']);
+        $username = strtolower($username);
         $password = stripslashes($_REQUEST['password']);
         // Check if user exists in the database
 
@@ -20,7 +21,7 @@
         
         if ($result == 1) { 
             $_SESSION['username'] = $username;
-            if($username == 'Admin'){
+            if($username == 'admin'){
                 header('Location: admin_panel.php');
             }else{       
             // Redirect to user dashboard page

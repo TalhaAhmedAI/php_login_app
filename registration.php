@@ -7,7 +7,7 @@
 </head>
 <body>
 <?php
-    include_once('user.php');
+    include_once('./Classes/user.php');
     $user = new User();
     // When form submitted, insert values into the database.
     if (isset($_REQUEST['username'])) {

@@ -1,7 +1,7 @@
 <?php
   
   // Include database file
-  include('admin.php');
+  include('./Classes/admin.php');
 
   $admin = new Admin();
 
