@@ -1,7 +1,8 @@
 <?php
   
   // Include database file
-  include('./Classes/admin.php');
+  include('./classes/admin.php');
+  include('./layout/header.php');
 
   $admin = new Admin();
 
@@ -22,10 +23,6 @@
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
 </head>
 <body>
-
-<div class="card text-center" style="padding:15px;">
-  <h4>PHP: CRUD (Add, Edit, Delete, View) Application using OOP (Object Oriented Programming) and MYSQL</h4>
-</div><br><br> 
 
 <div class="container">
   <?php

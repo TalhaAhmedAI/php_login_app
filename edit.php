@@ -1,7 +1,8 @@
 <?php
   
-  include('./Classes/admin.php');
   include('admin_auth_session.php');
+  include('./classes/admin.php');
+  include('./layout/header.php');
 
   $admin = new Admin();
 
@@ -27,10 +28,6 @@
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
 </head>
 <body>
-
-<div class="card text-center" style="padding:15px;">
-  <h4>PHP: CRUD (Add, Edit, Delete, View) Application using OOP (Object Oriented Programming) and MYSQL</h4>
-</div><br> 
 
 <div class="container">
   <form action="edit.php" method="POST">

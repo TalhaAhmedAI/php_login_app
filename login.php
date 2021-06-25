@@ -8,7 +8,7 @@
 <body>
 <?php
     session_start();
-    include_once('./Classes/user.php');
+    include_once('./classes/user.php');
     $user = new User();
     // When form submitted, check and create user session.
     if (isset($_POST['username'])) {
