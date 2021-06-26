@@ -18,7 +18,8 @@
         $user->email = stripslashes($_REQUEST['email']);
         $user->email = strtolower($user->email);
         //$email    = mysqli_real_escape_string($con, $email);
-        $user->password = stripslashes($_REQUEST['password']);
+        $password = stripslashes($_REQUEST['password']);
+        $user->password = password_hash($password, PASSWORD_DEFAULT);
         //$password = mysqli_real_escape_string($con, $password);
 
         $response =$user->register($user->username, $user->email, $user->password);

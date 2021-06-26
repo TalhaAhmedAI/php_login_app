@@ -13,8 +13,9 @@ class Admin extends DbConnection{
         $email = $this->con->real_escape_string($_POST['email']);
         $email = strtolower($email);
         $password = $this->con->real_escape_string($_POST['password']);
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        $query = "INSERT INTO users (username,email,password) VALUES('$username', '$email','$password')";
+        $query = "INSERT INTO users (username,email,password) VALUES('$username', '$email','$hashed_password')";
         $result = mysqli_query($this->con, $query);
         if ($result){
             header("Location:admin_panel.php?msg1=insert.php");

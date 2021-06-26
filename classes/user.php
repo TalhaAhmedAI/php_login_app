@@ -14,11 +14,14 @@ class User extends DbConnection{
        }
        
     public function login($username, $password){
-        $query    = "SELECT * FROM users WHERE username='$username'
-                     AND password='$password'";
+        $query    = "SELECT * FROM users WHERE username='$username'";
         $result = mysqli_query($this->con, $query);
-        $rows = mysqli_num_rows($result);
-        return $rows;
+        $user = $result->fetch_assoc();
+        if (password_verify($password, $user['password'])) {
+            $rows = mysqli_num_rows($result);
+            return $rows;
+        }
+        
        }
 }
 ?>
