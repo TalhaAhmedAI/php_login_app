@@ -2,13 +2,17 @@
     
 class DbConnection{
     private $host = 'localhost';
-    private $username = 'root';
-    private $password = '';
+    private $name = 'root';
+    private $key = '';
     private $database = 'php_login_app';
     protected $con;
 
+    public $username;
+    public $email;
+    public $password;
+
     function __construct() {  
-        $this->con = new mysqli($this->host, $this->username, $this->password, $this->database);  
+        $this->con = new mysqli($this->host, $this->name, $this->key, $this->database);  
         // Check connection
     if (mysqli_connect_errno())
     {

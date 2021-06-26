@@ -12,16 +12,16 @@
     // When form submitted, insert values into the database.
     if (isset($_REQUEST['username'])) {
         // removes backslashes
-        $username = stripslashes($_REQUEST['username']);
-        $username = strtolower($username);
+        $user->username = stripslashes($_REQUEST['username']);
+        $user->username = strtolower($user->username);
         //$username = mysqli_real_escape_string($con, $username);
-        $email    = stripslashes($_REQUEST['email']);
-        $email = strtolower($email);
+        $user->email = stripslashes($_REQUEST['email']);
+        $user->email = strtolower($user->email);
         //$email    = mysqli_real_escape_string($con, $email);
-        $password = stripslashes($_REQUEST['password']);
+        $user->password = stripslashes($_REQUEST['password']);
         //$password = mysqli_real_escape_string($con, $password);
 
-        $response =$user->register($username, $email, $password);
+        $response =$user->register($user->username, $user->email, $user->password);
         
         if ($response) {
             echo "<div class='form'>

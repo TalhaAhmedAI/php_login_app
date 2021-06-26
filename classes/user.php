@@ -12,7 +12,7 @@ class User extends DbConnection{
         $result   = mysqli_query($this->con, $query);
         return $result;
        }
-
+       
     public function login($username, $password){
         $query    = "SELECT * FROM users WHERE username='$username'
                      AND password='$password'";

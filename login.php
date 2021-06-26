@@ -12,16 +12,16 @@
     $user = new User();
     // When form submitted, check and create user session.
     if (isset($_POST['username'])) {
-        $username = stripslashes($_REQUEST['username']);
-        $username = strtolower($username);
-        $password = stripslashes($_REQUEST['password']);
+        $user->username = stripslashes($_REQUEST['username']);
+        $user->username = strtolower($user->username);
+        $user->password = stripslashes($_REQUEST['password']);
         // Check if user exists in the database
 
-        $result = $user->login($username, $password);
+        $result = $user->login($user->username, $user->password);
         
         if ($result == 1) { 
-            $_SESSION['username'] = $username;
-            if($username == 'admin'){
+            $_SESSION['username'] = $user->username;
+            if($user->username == 'admin'){
                 header('Location: admin_panel.php');
             }else{       
             // Redirect to user dashboard page
