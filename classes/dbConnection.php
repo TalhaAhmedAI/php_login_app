@@ -1,10 +1,10 @@
 <?php
     
 class DbConnection{
-    private $host = 'localhost';
-    private $name = 'root';
-    private $key = '';
-    private $database = 'php_login_app';
+    // private $host = 'localhost';
+    // private $name = 'root';
+    // private $key = '';
+    // private $database = 'php_login_app';
     protected $con;
 
     public $username;
@@ -12,7 +12,7 @@ class DbConnection{
     public $password;
 
     function __construct() {  
-        $this->con = new mysqli($this->host, $this->name, $this->key, $this->database);  
+        $this->con = new mysqli(null, '[USR]', '[PASS]', '[DB]', null, '[CONN]');  
         // Check connection
     if (mysqli_connect_errno())
     {

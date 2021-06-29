@@ -1,0 +1,22 @@
+runtime: php 8.0.6
+
+runtime_config:
+  document_root: .
+
+
+handlers:
+  - url: /(.+\.(gif|png|jpg|css|js|map|PNG))$
+    static_files: \1
+    upload: .+\.(gif|png|jpg|css|js|map|PNG))$
+
+  - url: /.*
+    script: auto
+
+  entrypoint:
+    serve handler.php
+
+env_variables:
+  CLOUDSQL_USER: root
+  CLOUDSQL_DB: phploginapp
+  CLOUDSQL_PASSWORD: phploginapp
+  CLOUDSQL_DSN: /cloudsql/phploginapp:us-central1:phploginapp
