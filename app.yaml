@@ -1,4 +1,4 @@
-runtime: php 8.0.6
+runtime: php74
 
 runtime_config:
   document_root: .
@@ -7,13 +7,13 @@ runtime_config:
 handlers:
   - url: /(.+\.(gif|png|jpg|css|js|map|PNG))$
     static_files: \1
-    upload: .+\.(gif|png|jpg|css|js|map|PNG))$
+    upload: .+\.(gif|png|jpg|css|js|map|PNG)$
 
   - url: /.*
     script: auto
 
-  entrypoint:
-    serve handler.php
+entrypoint:
+  serve handler.php
 
 env_variables:
   CLOUDSQL_USER: root

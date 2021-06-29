@@ -5,6 +5,10 @@ class DbConnection{
     // private $name = 'root';
     // private $key = '';
     // private $database = 'php_login_app';
+    private $user = getenv('CLOUDSQL_USER');
+    private $pass = getenv('CLOUDSQL_PASSWORD');
+    private $inst = getenv('CLOUDSQL_DSN');
+    private $db = getenv('CLOUDSQL_DB');
     protected $con;
 
     public $username;
@@ -12,7 +16,7 @@ class DbConnection{
     public $password;
 
     function __construct() {  
-        $this->con = new mysqli(null, '[USR]', '[PASS]', '[DB]', null, '[CONN]');  
+        $this->con = new mysqli(null, $user, $pass, $db, null, $inst);  
         // Check connection
     if (mysqli_connect_errno())
     {
