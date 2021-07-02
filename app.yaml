@@ -12,9 +12,6 @@ handlers:
   - url: /.*
     script: auto
 
-entrypoint:
-  serve handler.php
-
 env_variables:
   CLOUDSQL_USER: root
   CLOUDSQL_DB: phploginapp
