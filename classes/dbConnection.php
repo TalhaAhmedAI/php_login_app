@@ -1,22 +1,19 @@
 <?php
     
 class DbConnection{
-    // private $host = 'localhost';
-    // private $name = 'root';
-    // private $key = '';
-    // private $database = 'php_login_app';
-    private $user = getenv('CLOUDSQL_USER');
-    private $pass = getenv('CLOUDSQL_PASSWORD');
-    private $inst = getenv('CLOUDSQL_DSN');
-    private $db = getenv('CLOUDSQL_DB');
+    private $host = 'localhost';
+    private $name = 'root';
+    private $key = '';
+    private $database = 'php_login_app';
+  
     protected $con;
 
-    public $username;
-    public $email;
-    public $password;
+    // public $username;
+    // public $email;
+    // public $password;
 
     function __construct() {  
-        $this->con = new mysqli(null, $user, $pass, $db, null, $inst);  
+        $this->con = new mysqli($this->host, $this->name, $this->key, $this->database);  
         // Check connection
     if (mysqli_connect_errno())
     {

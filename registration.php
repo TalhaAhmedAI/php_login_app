@@ -29,6 +29,26 @@
                   <h3>You are registered successfully.</h3><br/>
                   <p class='link'>Click here to <a href='login.php'>Login</a></p>
                   </div>";
+            require_once'C:\Users\Talha Ahmed\vendor\autoload.php';
+            require_once'gmail_credentials.php';
+
+            // create the Transport
+            $transport = (new Swift_SmtpTransport('smtp.gmail.com', 587, 'tls'))
+                ->setUsername(EMAIL)
+                ->setPassword(PASS);
+
+            // create the Mailer using your created Transport
+            $mailer = new Swift_Mailer($transport);
+
+            $message = (new Swift_Message('Registration Notification'))
+                ->setFrom([EMAIL => 'Talha Ahmed'])
+                ->setTo([$user->email])
+                ->setBody("You're registered successfully");
+
+            // send the message
+
+            $result = $mailer->send($message);
+
         } else {
             echo "<div class='form'>
                   <h3>Required fields are missing.</h3><br/>
